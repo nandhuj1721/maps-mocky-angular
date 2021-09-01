@@ -17,7 +17,8 @@ export class AppComponent {
   
   ngAfterViewInit(){
     this.chart = am4core.create("chartdiv",am4maps.MapChart);
-    this.chart.geodata = this.chart.geodataSource.url = "https://run.mocky.io/v3/31209569-c42e-4b30-8a9d-78389a234b43";
+    //this.chart.geodata = this.chart.geodataSource.url = "https://run.mocky.io/v3/31209569-c42e-4b30-8a9d-78389a234b43";
+    this.chart.geodata= this.chart.geodataSource.url ="https://run.mocky.io/v3/7012a6d8-6e7a-4f61-883b-bc485bbd504d";
     this.chart.projection= new am4maps.projections.Miller;
 
 
@@ -26,7 +27,7 @@ export class AppComponent {
     polygonSeries.useGeodata= true;
 
     let polygonTemplate = polygonSeries.mapPolygons.template;
-    polygonTemplate.tooltipText = "{name}";
+    polygonTemplate.tooltipText = "{number}.{name}";
     polygonTemplate.polygon.fillOpacity =0.6;
     polygonTemplate.fill = am4core.color("#74B267");
     let hs = polygonTemplate.states.create("hover");
